@@ -24,7 +24,7 @@ The [Sarcasm_Headlines_Dataset_v2.json](https://github.com/a-rhodes-vcu/sarcasm_
 ```
 In [sarcasm_analyzer.py](https://github.com/a-rhodes-vcu/sarcasm_detector/blob/main/sarcasm_analyzer.py) the json file is iterated over and stored into lists
 
-```
+```python
       def process_data(self):
         """
         Process the data and to prep for training and testing data
@@ -38,7 +38,7 @@ In [sarcasm_analyzer.py](https://github.com/a-rhodes-vcu/sarcasm_detector/blob/m
             self.urls.append((value["article_link"]))
 ```
 Now it's time to tokenize, which is taking a sentence and breaking it into words and then creating an index of word frequencies. 
-```
+```python
  
         # larger training size results in a more accurate prediction
         training_size = 90000
@@ -56,7 +56,7 @@ Now it's time to tokenize, which is taking a sentence and breaking it into words
         self.tokenizer.fit_on_texts(self.sentences)
 ```
 create_model creates the inputs for the neural network which are lists of testing and training data. texts_to_sequences() creates a list of lists where each word is represented by a number and pad_sequences() is used to pad the sequences so each one has identical lengths.
-```
+```python
       def create_model(self):
         """
         Take processed data and create training and testing sequences
@@ -79,7 +79,7 @@ create_model creates the inputs for the neural network which are lists of testin
         testing_labels = np.array(self.testing_labels)
 ```
 Finally to the neural network! The neural network has three layers, first layer is the embedding layer, second layer has 50 neurons, followed by the output layer. 50% of the neurons are dropped out to prevent overfitting. The model is then compiled and fit with the training and testing data. 
-```
+```python
         # Create model - 3 layers
         # used the sequential model which is a stack of layers feeding linearly from one to the next
         # the output of one layer is input to next layer
@@ -105,7 +105,7 @@ Finally to the neural network! The neural network has three layers, first layer 
                   validation_data=(testing_padded, testing_labels), verbose=2)
 ```
 Now for the fun part, headlines are scraped from CBS and The Onion, processed and then put through the model to determine a prediction. The scraped headline and prediction is outputted.
-```
+```python
         # web scrape headlines
         news_head_lines = (head_line_web_scraper.get_news_headlines()[0:4])
         sarcastic_news_head_lines = (head_line_web_scraper.get_sarcastic_headlines()[0:4])
