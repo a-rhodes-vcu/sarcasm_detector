@@ -57,7 +57,6 @@ Now it's time to tokenize, which is taking a sentence and breaking it into words
 ```
 create_model creates the inputs for the neural network which are lists of testing and training data. texts_to_sequences() creates a list of lists where each word is represented by a number and pad_sequences() is used to pad the sequences so each one has identical lengths.
 ```
-   """
       def create_model(self):
         """
         Take processed data and create training and testing sequences
