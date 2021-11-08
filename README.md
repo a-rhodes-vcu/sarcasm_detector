@@ -5,7 +5,7 @@ This project is essentially a sentiment analyzer that detects whether a headline
 I think it's fascinating that the feeling of a sentence can be extracted and I wanted to create a sentiment analyzer that could predict the tone of a phrase.
 
 ## Finished Product
-To run in your local environment you just need to install the packages found in the [requirements.txt](https://github.com/a-rhodes-vcu/sarcasm_detector/blob/main/requirements.txt)
+The program outputs web scraped headlines along with a sarcasm prediction generated from the model. To run in your local environment you just need to clone this repo and install the packages found in the [requirements.txt](https://github.com/a-rhodes-vcu/sarcasm_detector/blob/main/requirements.txt)
 
 ## Code walkthrough
 Programs used:
